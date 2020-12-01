@@ -12,6 +12,6 @@ def func(filename: str) -> int:
   return 0
 
 def test_answer1():
-    assert func('inputs/01.1') ==  514579
+    assert func('samples/01.1') ==  514579
     
-print(func('inputs/01.2'))
+print(func('samples/01.2'))
