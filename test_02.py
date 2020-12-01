@@ -27,4 +27,4 @@ def test_answer1():
   assert func('samples/01.1') ==  241861950
     
 def test_answer2():
-  assert func('samples/01.2') == -1
+  assert func('samples/01.2') == 8446464
