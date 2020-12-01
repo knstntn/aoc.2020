@@ -1,5 +1,7 @@
 # https://adventofcode.com/2020/day/1#part2
 
+from typing import List
+
 def func(filename: str) -> int:
   sum = 2020
   with open(filename,'r') as fh:
