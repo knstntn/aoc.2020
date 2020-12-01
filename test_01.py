@@ -1,6 +1,6 @@
 # https://adventofcode.com/2020/day/1
 
-def func(filename: str) -> num:
+def func(filename: str) -> int:
   sum = 2020
   with open(filename,'r') as fh:
     nums = [int(line) for line in fh.readlines()]
