@@ -12,13 +12,13 @@ def func(filename: str) -> int:
     
 def calc(sum: int, nums: List[int], skip: int) -> int:
   res = set()
-    for i, num in enumerate(nums):
-      if i == skip:
-        continue
-        
-      if num in res:
-        return num * (sum - num)
-      res.add(sum - num)
+  for i, num in enumerate(nums):
+    if i == skip:
+      continue
+
+    if num in res:
+      return num * (sum - num)
+    res.add(sum - num)
   return 0
 
 def test_answer1():
