@@ -1,17 +1,17 @@
 # https://adventofcode.com/2020/day/3
 
-def is_valid(line: str) -> bool:
-  count = 0
-  policy, pwd = PolicyUtils.parse(line)
-  for c in pwd:
-    if c == policy.char:
-      count += 1
-  return policy.left <= count and policy.right >= count
-
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
     map = [line for line in fh.readlines()]
-    return 0
+    length = len(map[0])
+    height = len(map)
+    count = 0
+    top, right = (0, 0)
+    while(height > top):
+      if map[top][right%length] == '#':
+        count += 1
+      top, right = (top + 1, right + 3)
+    return count
 
 def test_answer1():
   assert func('samples/03.1') ==  7
