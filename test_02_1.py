@@ -13,9 +13,9 @@ def parse(line: str) -> typing.Tuple[Policy, str]:
   max, _, char = rest.partition(' ')
   return (Policy(min=int(min), max=int(max), char=char.strip()), pwd.strip())
 
-def is_valid(line: typing.Tuple[Policy, str]) -> bool:
+def is_valid(line: str) -> bool:
   count = 0
-  policy, pwd = line
+  policy, pwd = parse(line)
   for c in pwd:
     if c == policy.char:
       count += 1
@@ -23,7 +23,7 @@ def is_valid(line: typing.Tuple[Policy, str]) -> bool:
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    return sum([1 for line in fh.readlines() if is_valid(parse(line))])
+    return sum([1 for line in fh.readlines() if is_valid(line)])
 
 def test_answer1():
   assert func('samples/02.1') ==  2
