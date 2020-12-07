@@ -23,4 +23,4 @@ def test_answer1():
   assert func('samples/03.1') ==  336
     
 def test_answer2():
-  assert func('samples/03.2') == 580
+  assert func('samples/03.2') == 6419669520
