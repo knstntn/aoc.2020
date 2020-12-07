@@ -5,7 +5,7 @@ def func(filename: str) -> int:
     data = [x for x in fh.readlines()]
     trees = 0
     slope = (3,1)
-    right, down = (3, 0)
+    right, down = (0, 0)
     while down < len(data):
         if data[down][right % len(data[0])] == '#':
             trees += 1
