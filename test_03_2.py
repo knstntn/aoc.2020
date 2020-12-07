@@ -12,7 +12,7 @@ def func(filename: str) -> int:
   height = len(map)
   for slope in slopes:
     count, top, left = (0, 0, 0)
-    while height > down:
+    while top < height:
       if map[top][left%length] == '#':
         count += 1
       top, left = (top + slope[1], left + slope[0])
