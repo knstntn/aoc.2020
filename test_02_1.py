@@ -1,10 +1,10 @@
 # https://adventofcode.com/2020/day/2
 
-import utils.policy as policy
+import utils.policy as PolicyUtils
 
 def is_valid(line: str) -> bool:
   count = 0
-  policy, pwd = policy.parse(line)
+  policy, pwd = PolicyUtils.parse(line)
   for c in pwd:
     if c == policy.char:
       count += 1
