@@ -2,7 +2,7 @@
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    data = [x for x in fh.readlines()]
+    data = [x.strip() for x in fh.readlines()]
     trees = 0
     slope = (3,1)
     right, down = (0, 0)
