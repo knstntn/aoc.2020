@@ -7,7 +7,7 @@ def func(filename: str) -> int:
     height = len(map)
     count, down, right = (0, 0, 0)
     while height > down:
-      if map[top][right%length] == '#':
+      if map[down][right%length] == '#':
         count += 1
       down, right = (down + 1, right + 3)
     return count
