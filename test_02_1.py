@@ -1,21 +1,10 @@
 # https://adventofcode.com/2020/day/2
 
-import typing as typing
-
-class Policy(typing.NamedTuple):
-  min: int
-  max: int
-  char: str
-
-def parse(line: str) -> typing.Tuple[Policy, str]:
-  policy, _, pwd = line.partition(':')
-  min, _, rest = policy.partition('-')
-  max, _, char = rest.partition(' ')
-  return (Policy(min=int(min), max=int(max), char=char.strip()), pwd.strip())
+import utils.policy as policy
 
 def is_valid(line: str) -> bool:
   count = 0
-  policy, pwd = parse(line)
+  policy, pwd = policy.parse(line)
   for c in pwd:
     if c == policy.char:
       count += 1
