@@ -2,10 +2,13 @@
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    return sum([
-      1 for i, line in enumerate(fh.readlines())
-      if line[3*i%len(line)] == '#'
-    ])
+    map = [x for x in fh.readlines()]
+    top, left, count = (0,0,0)
+    while top < len(map):
+      if map[top][left] == '#':
+        count += 1
+      top, left = (top + 1, (left + 3)%len(map[top]))
+    return count
 
 def test_answer1():
   assert func('samples/03.1') ==  7
