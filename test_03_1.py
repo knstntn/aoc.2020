@@ -2,7 +2,7 @@
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    step = 3
+    step = 2
     return sum([
       1 for i, line in enumerate(fh.readlines())
       if line[(step*i)%len(line)] == '#'
