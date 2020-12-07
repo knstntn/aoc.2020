@@ -2,15 +2,16 @@
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    map = [x for x in fh.readlines()]
-    length = len(map[0])
-    slope = (1,3)
-    top, left, count = (0,0,0)
-    while top < len(map):
-      if map[top][left%length] == '#':
-        count += 1
-      top, left = (top + slope[0], left + slope[1])
-    return count
+    data = [x for x in fh.readlines()]
+    trees = 0
+    slope = (3,1)
+    right, down = (0, 0)
+    while down < len(data):
+        if data[down][right % len(data[0])] == '#':
+            trees += 1
+        right += slope[0]
+        down += slope[1]
+    return trees
 
 def test_answer1():
   assert func('samples/03.1') ==  7
