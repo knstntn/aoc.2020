@@ -3,7 +3,6 @@
 import utils.policy as PolicyUtils
 
 def is_valid(line: str) -> bool:
-  count = 0
   policy, pwd = PolicyUtils.parse(line)
   is_left_match = pwd[policy.left - 1] == policy.char
   is_right_match = pwd[policy.right - 1] == policy.char
@@ -17,4 +16,4 @@ def test_answer1():
   assert func('samples/02.1') ==  1
     
 def test_answer2():
-  assert func('samples/02.2') == 580
+  assert func('samples/02.2') == 611
