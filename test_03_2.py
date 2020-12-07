@@ -7,15 +7,15 @@ slopes = [
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
     map = [line.strip() for line in fh.readlines()]
-    res = 1
-    length = len(map[0])
-    height = len(map)
-    for slope in slopes:
-      count, top, left = (0, 0, 0)
-      while top < height:
-        if map[top][left%length] == '#':
-          count += 1
-        top, left = (top + slope[1], left + slope[0])
+  res = 1
+  length = len(map[0])
+  height = len(map)
+  for slope in slopes:
+    count, top, left = (0, 0, 0)
+    while top < height:
+      if map[top][left%length] == '#':
+        count += 1
+      top, left = (top + slope[1], left + slope[0])
     res *= count
   return res
 
