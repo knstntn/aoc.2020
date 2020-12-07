@@ -8,10 +8,10 @@ class Policy(typing.NamedTuple):
   char: str
 
 def parse(line: str) -> typing.Tuple[Policy, str]:
-  policy, _, pwd = line.partition('.')
+  policy, _, pwd = line.partition(':')
   min, _, rest = policy.partition('-')
   max, _, char = rest.partition(' ')
-  return (Policy(min=int(min) max=int(max), char=char), pwd)
+  return (Policy(min=int(min), max=int(max), char=char.strip()), pwd.strip())
 
 def is_valid(line: typing.Tuple[Policy, str]) -> bool:
   count = 0
