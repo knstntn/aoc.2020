@@ -2,15 +2,11 @@
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    map = [line for line in fh.readlines()]
-    length = len(map[0])
-    height = len(map)
-    count, down, right = (0, 0, 0)
-    while height > down:
-      if map[down][right%length] == '#':
-        count += 1
-      down, right = (down + 1, right + 3)
-    return count
+    step = 3
+    return sum([
+      1 for i, line in enumerate(fh.readlines())
+      if line[(step*i)%len(line)] == '#'
+    ])
 
 def test_answer1():
   assert func('samples/03.1') ==  7
