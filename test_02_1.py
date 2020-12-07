@@ -8,7 +8,7 @@ def is_valid(line: str) -> bool:
   for c in pwd:
     if c == policy.char:
       count += 1
-  return policy.min <= count and policy.max >= count
+  return policy.left <= count and policy.right >= count
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
