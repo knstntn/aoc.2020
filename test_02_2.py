@@ -6,7 +6,7 @@ def is_valid(line: str) -> bool:
   policy, pwd = PolicyUtils.parse(line)
   is_left_match = pwd[policy.left - 1] == policy.char
   is_right_match = pwd[policy.right - 1] == policy.char
-  return (is_left_match is True and is_right_match is False) or (is_left_match is False and is_right_match is True)
+  return is_left_match ^ is_right_match
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
