@@ -6,14 +6,18 @@ slopes = [
 
 def func(filename: str) -> int:
   with open(filename,'r') as fh:
-    map = [x.strip() for x in fh.readlines()]
+    map = [line.strip() for line in fh.readlines()]
     res = 1
+    length = len(map[0])
+    height = len(map)
     for slope in slopes:
-      res *= sum([
-        1 for i, line in enumerate(map)
-        if i%slope[1] == 0 and line[slope[0]*i%len(line)] == '#'
-      ])
-    return res
+      count, top, left = (0, 0, 0)
+      while top < height:
+        if map[top][left%length] == '#':
+          count += 1
+        top, left = (top + slope[1], left + slope[0])
+    res *= count
+  return res
 
 def test_answer1():
   assert func('samples/03.1') ==  336
