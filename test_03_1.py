@@ -5,12 +5,11 @@ def func(filename: str) -> int:
     map = [line for line in fh.readlines()]
     length = len(map[0])
     height = len(map)
-    count = 0
-    top, right = (0, 0)
-    while(height > top):
+    count, down, right = (0, 0, 0)
+    while height > down:
       if map[top][right%length] == '#':
         count += 1
-      top, right = (top + 1, right + 3)
+      down, right = (down + 1, right + 3)
     return count
 
 def test_answer1():
